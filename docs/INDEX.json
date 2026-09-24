@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "generated_by": "scripts/check-docs.py --reindex",
+  "repo": "blaine-morgan.github.io",
+  "genres": [
+    "audit",
+    "direction",
+    "history",
+    "increment",
+    "index",
+    "reference",
+    "requirements",
+    "runbook",
+    "tracker"
+  ],
+  "statuses": [
+    "current",
+    "historical",
+    "superseded"
+  ],
+  "docs": [
+    {
+      "id": "DOC-INDEX",
+      "path": "docs/INDEX.md",
+      "genre": "index",
+      "status": "current",
+      "updated": "2026-09-23",
+      "summary": "Catalog of every document, typed by genre and status. Entry point for agents."
+    },
+    {
+      "id": "SITE",
+      "path": "docs/SITE.md",
+      "genre": "reference",
+      "status": "current",
+      "updated": "2026-09-23",
+      "summary": "Structure of the marketing page, the funnel it feeds, the design language shared with the demo page, the copy rules, and the claims Blaine must confirm before the business cards go out."
+    }
+  ]
+}

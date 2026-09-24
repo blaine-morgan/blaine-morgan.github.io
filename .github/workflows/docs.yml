@@ -1,0 +1,40 @@
+name: docs
+
+on:
+  push:
+    # Only the integration branches. The campaign pushes a friday/<uuid> branch
+    # per job; running there produced a failure email per job while nothing was
+    # wrong with the documentation.
+    branches: [main, master]
+    paths: ['**/*.md', '**/INDEX.json', 'scripts/check-docs.py', '.github/workflows/docs.yml']
+  pull_request:
+    paths: ['**/*.md', '**/INDEX.json', 'scripts/check-docs.py', '.github/workflows/docs.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
+      # Every relative link resolves; every backticked *.md resolves or is declared
+      # in external_refs; typed frontmatter with a valid genre/status and ISO date;
+      # INDEX.json matches the filesystem. Cross-repo references are skipped here
+      # because CI checks out a single repository.
+      - name: Documentation contract
+        run: python3 scripts/check-docs.py
+
+      - name: Index is current
+        run: |
+          python3 scripts/check-docs.py --reindex
+          if ! git diff --quiet; then
+            echo "::error::INDEX.json is stale. Run: python3 scripts/check-docs.py --reindex"
+            git diff --stat
+            exit 1
+          fi
