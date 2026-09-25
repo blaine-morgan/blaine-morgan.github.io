@@ -61,8 +61,28 @@ These are on the page today and are reasonable, but Blaine has not stated them:
 
 Change the wording in `index.html` if any of these is not how Blaine wants to work.
 
+## Domain
+
+`morgantechconsulting.com` (registrar GoDaddy, nameservers `ns15/ns16.domaincontrol.com`).
+`CNAME` in the repo root names it and the Pages setting carries it, so GitHub serves
+the site there once DNS points at Pages. Records Blaine sets at GoDaddy (2026-09-24):
+
+| Host | Type | Value |
+| --- | --- | --- |
+| `@` | A | `185.199.108.153` |
+| `@` | A | `185.199.109.153` |
+| `@` | A | `185.199.110.153` |
+| `@` | A | `185.199.111.153` |
+| `www` | CNAME | `blaine-morgan.github.io` |
+
+Remove GoDaddy's parking records first (today `@` A `76.223.105.230` / `13.248.243.5`,
+`www` CNAME to the apex). Verify: `curl -sI https://morgantechconsulting.com/ | head -1`
+returns 200 and the Pages setting shows the certificate issued; then turn on "Enforce
+HTTPS" (`gh api -X PUT repos/blaine-morgan/blaine-morgan.github.io/pages -F https_enforced=true`).
+`https://blaine-morgan.github.io/` keeps redirecting to the domain.
+
 ## Deploy
 
 Push to `main`. GitHub Pages serves the root of the branch (`.nojekyll` present).
-Check `https://blaine-morgan.github.io/` returns the new `<title>` within a minute
+Check `https://morgantechconsulting.com/` returns the new `<title>` within a minute
 or two. The docs workflow runs `scripts/check-docs.py` on every push.
