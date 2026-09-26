@@ -211,8 +211,10 @@
     body.submissionId=submissionId;body.referralCode='site';
     button.disabled=true;note.textContent='Building your sample demo. This usually takes under a minute…';
     fetch(gateway+'/visit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({referralCode:'site'})}).catch(function(){});
-    fetch(gateway+'/generate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)})
-      .then(function(r){return r.json().catch(function(){return {};}).then(function(v){if(!r.ok)throw new Error(v.error||'The demo service did not answer.');return v;});})
+    var generate=function(){return fetch(gateway+'/generate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)})
+      .then(function(r){return r.json().catch(function(){return {};}).then(function(v){if(!r.ok){var e=new Error(v.error||'The demo service did not answer.');e.retry=v.retry===true||v.category==='busy';throw e;}return v;});});};
+    generate()
+      .catch(function(error){if(!error.retry)throw error;note.textContent='The demo service is busy for a moment; trying again…';return new Promise(function(res){setTimeout(res,3000);}).then(generate);})
       .then(function(lead){location.href=lead.demoUrl||(gateway+'/d/'+lead.token);})
       .catch(function(error){
         note.textContent=(error&&error.message?error.message+' ':'')+'Opening the demo page instead…';
