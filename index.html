@@ -164,8 +164,13 @@
         <div class="field"><label for="d-task">2. Which task eats the most time each week?</label><input id="d-task" name="task" type="text" required maxlength="300" placeholder="The one you would hand off first"></div>
         <div class="field"><label for="d-how">3. Who does it today, and with what?</label><input id="d-how" name="how" type="text" required maxlength="300" placeholder="People, spreadsheets, apps, paper"></div>
         <div class="field"><label for="d-outcome">4. If it ran itself, what should happen?</label><textarea id="d-outcome" name="outcome" rows="3" required maxlength="500" placeholder="The result you want without the busywork"></textarea></div>
+        <div class="two">
+          <div class="field"><label for="d-name">Your name</label><input id="d-name" name="name" type="text" required maxlength="200" autocomplete="name"></div>
+          <div class="field"><label for="d-phone">Phone (optional)</label><input id="d-phone" name="phone" type="tel" maxlength="80" autocomplete="tel"></div>
+        </div>
+        <div class="field"><label for="d-email">Email, so we can send you your demo link</label><input id="d-email" name="email" type="email" required maxlength="254" autocomplete="email"></div>
         <button class="btn btn-primary btn-block" type="submit">Show me my demo</button>
-        <p class="form-note" id="demo-note">Takes under a minute. Your result uses sample data, not your records.</p>
+        <p class="form-note" id="demo-note">Takes under a minute. Your result uses sample data, not your records. We email you the link to your demo and nothing else.</p>
       </form>
     </section>
 
@@ -207,7 +212,7 @@
   form.addEventListener('submit',function(event){
     if(!form.checkValidity())return;
     event.preventDefault();
-    var body={};['business','task','how','outcome'].forEach(function(k){body[k]=form.elements[k].value.trim();});
+    var body={};['business','task','how','outcome','name','email','phone'].forEach(function(k){body[k]=form.elements[k].value.trim();});
     body.submissionId=submissionId;body.referralCode='site';
     button.disabled=true;note.textContent='Building your sample demo. This usually takes under a minute…';
     fetch(gateway+'/visit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({referralCode:'site'})}).catch(function(){});

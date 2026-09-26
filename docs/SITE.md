@@ -35,9 +35,10 @@ The pull quote section is commented out until a real client quote exists.
 
 ## The demo intake
 
-The form at `#demo` posts the four answers straight to the demo service from this
-page (`POST …/instant-business-demo/generate` with `submissionId` and
-`referralCode: site`; the gateway allows this origin since 2026-09-26), shows
+The form at `#demo` posts the four answers plus name, email and optional phone
+straight to the demo service from this page (`POST …/instant-business-demo/generate`
+with `submissionId`, `referralCode: site` and the contact, which BlaineOS stores with
+the lead and uses to send the demo link; the gateway allows this origin since 2026-09-26), shows
 "Building your sample demo…", and on success sends the visitor to their finished
 demo (`demoUrl`), where feedback and contact live. If the service cannot be
 reached from the browser, the plain form submit opens the demo page with the
