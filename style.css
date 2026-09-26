@@ -28,8 +28,8 @@ img{max-width:100%}
 .big{font-size:20px}
 .strong{font-size:20px;font-weight:700;color:var(--navy-2)}
 .amber{color:var(--amber)}
-.mark{width:66px;height:26px;display:block}
-.logo{height:44px;width:auto;display:block}
+.mark{width:86px;height:34px;display:block;flex:0 0 auto}
+.logo{height:50px;width:auto;display:block}
 
 /* buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;text-decoration:none;border:0;border-radius:6px;font-family:var(--display);font-weight:800;font-size:19px;letter-spacing:.01em;padding:20px 30px;cursor:pointer}
@@ -50,7 +50,7 @@ img{max-width:100%}
 /* hero */
 .hero{position:relative;background:var(--navy);color:var(--white);padding:0 var(--gutter) 120px;display:flex;flex-direction:column;gap:64px;overflow:hidden}
 .nav{position:relative;height:96px;display:flex;align-items:center;justify-content:space-between;z-index:2}
-.brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--white)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--white)}
 .nav-links{display:flex;align-items:center;gap:36px;font-size:17px;font-weight:600}
 .nav-links a{color:#dfe6ef;text-decoration:none}
 .nav-links a:hover{color:var(--amber)}
@@ -177,8 +177,8 @@ blockquote{margin:0;font-family:var(--display);font-size:44px;line-height:1.15;f
 
 /* footer */
 .footer{background:var(--footer);color:#a9b7c9;padding:48px var(--gutter);display:flex;justify-content:space-between;align-items:center;gap:24px;font-size:15px;flex-wrap:wrap}
-.brand-footer .mark{width:50px;height:20px}
-.brand-footer .logo{height:36px}
+.brand-footer .mark{width:64px;height:25px}
+.brand-footer .logo{height:38px}
 .footer-links{display:flex;gap:32px;font-weight:600;flex-wrap:wrap}
 .footer-links a{color:var(--muted-light);text-decoration:none}
 .footer-links a:hover{color:var(--amber)}
@@ -203,9 +203,10 @@ blockquote{margin:0;font-family:var(--display);font-size:44px;line-height:1.15;f
   .hero{padding-bottom:40px;gap:28px}
   .peaks-hero{left:-150px;right:auto;top:110px;bottom:auto;width:720px;height:284px}
   .peaks-hero path:last-child{fill:none;stroke:var(--amber);stroke-width:2.5;opacity:.45}
-  .nav{height:68px}
-  .mark{width:46px;height:18px}
-  .logo{height:34px}
+  .nav{height:72px}
+  .mark{width:66px;height:26px}
+  .logo{height:40px}
+  .brand{gap:8px}
   .nav-links{display:none;position:absolute;right:0;top:68px;flex-direction:column;align-items:stretch;gap:0;background:var(--navy-2);padding:8px 0;min-width:220px;border-radius:6px}
   .nav-links a{padding:14px 20px}
   .nav-links .nav-cta{margin:8px 20px 12px;text-align:center}

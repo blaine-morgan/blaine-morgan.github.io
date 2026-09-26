@@ -82,7 +82,7 @@ scroll.
 
 All are literal `[...]` strings in `index.html`; search for `[`.
 
-1. `[YOUR TOWN], [STATE]` in the hero pill, the about copy and the footer.
+1. (removed 2026-09-25: no town or state on the page, at Blaine's request)
 2. `[Your Name]` in the about copy and the photo caption; the background sentence.
 3. `[Photo of you on a job site — real, not stock]`: drop a photo into the `about-photo` figure.
 4. The client quote, `[Name]`, `[Title], [Company] · [Town]`, or remove the quote section.
