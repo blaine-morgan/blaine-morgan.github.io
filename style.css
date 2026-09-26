@@ -201,7 +201,8 @@ blockquote{margin:0;font-family:var(--display);font-size:44px;line-height:1.15;f
   :root{--gutter:20px}
   body{font-size:17px}
   .hero{padding-bottom:40px;gap:28px}
-  .peaks-hero{right:-170px;top:auto;bottom:-40px;width:560px;height:221px;opacity:.9}
+  .peaks-hero{left:-150px;right:auto;top:110px;bottom:auto;width:720px;height:284px}
+  .peaks-hero path:last-child{fill:none;stroke:var(--amber);stroke-width:2.5;opacity:.45}
   .nav{height:68px}
   .mark{width:46px;height:18px}
   .logo{height:34px}
