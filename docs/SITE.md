@@ -12,7 +12,7 @@ One page, static, served by GitHub Pages at https://morgantechconsulting.com/.
 Since 2026-09-25 it is the "V2 Bold" design from Blaine's design canvas
 (claude.ai artifact `XKQKZCjZwX2k9KaQsJKkEB`, boards `Bold.dc.html` desktop 1440 and
 `BoldMobile.dc.html` phone 390). Its job is to book a free 45-minute walkthrough;
-the Instant Business Demo funnel (BlaineOS, `docs/business-demo.md` there) is offered
+the Instant Business Demo funnel (BlaineOS, the BlaineOS business-demo doc there) is offered
 as a secondary link inside the "See it all in one place" block.
 
 ## Sections, in order
