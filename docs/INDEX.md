@@ -2,7 +2,7 @@
 id: DOC-INDEX
 genre: index
 status: current
-updated: 2026-09-23
+updated: 2026-09-25
 summary: Catalog of every document, typed by genre and status. Entry point for agents.
 ---
 
@@ -24,7 +24,7 @@ How the system behaves now.
 
 | Doc | Status | Updated | Summary |
 | --- | --- | --- | --- |
-| [SITE](SITE.md) | current | 2026-09-23 | Structure of the marketing page, the funnel it feeds, the design language shared with the demo page, the copy rules, and the claims Blaine must confirm before the business cards go out. |
+| [SITE](SITE.md) | current | 2026-09-25 | Structure of the marketing page (V2 Bold design), its primary CTA (the walkthrough form) and the demo funnel link, the design tokens, the copy rules, and the bracketed placeholders Blaine must fill before launch. |
 
 ## index
 
@@ -32,4 +32,4 @@ Catalogs.
 
 | Doc | Status | Updated | Summary |
 | --- | --- | --- | --- |
-| [DOC-INDEX](INDEX.md) | current | 2026-09-23 | Catalog of every document, typed by genre and status. Entry point for agents. |
+| [DOC-INDEX](INDEX.md) | current | 2026-09-25 | Catalog of every document, typed by genre and status. Entry point for agents. |

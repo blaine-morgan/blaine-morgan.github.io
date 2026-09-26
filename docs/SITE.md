@@ -2,64 +2,95 @@
 id: SITE
 genre: reference
 status: current
-updated: 2026-09-23
-summary: Structure of the marketing page, the funnel it feeds, the design language shared with the demo page, the copy rules, and the claims Blaine must confirm before the business cards go out.
+updated: 2026-09-25
+summary: Structure of the marketing page (V2 Bold design), its primary CTA (the walkthrough form) and the demo funnel link, the design tokens, the copy rules, and the bracketed placeholders Blaine must fill before launch.
 ---
 
 # The marketing site
 
-One page, static, served by GitHub Pages at https://blaine-morgan.github.io/.
-Its only job is to send a visitor into the Instant Business Demo funnel
-(BlaineOS, `docs/business-demo.md` there) with enough context that the four
-questions make sense.
+One page, static, served by GitHub Pages at https://morgantechconsulting.com/.
+Since 2026-09-25 it is the "V2 Bold" design from Blaine's design canvas
+(claude.ai artifact `XKQKZCjZwX2k9KaQsJKkEB`, boards `Bold.dc.html` desktop 1440 and
+`BoldMobile.dc.html` phone 390). Its job is to book a free 45-minute walkthrough;
+the Instant Business Demo funnel (BlaineOS, `docs/business-demo.md` there) is offered
+as a secondary link inside the "See it all in one place" block.
 
 ## Sections, in order
 
 | Section | Purpose | CTA |
 | --- | --- | --- |
-| Hero | The promise (the task done by hand should run itself) and an example of what the demo builds | Build my demo |
-| Where the hours go | Names the three costs a visitor recognises: re-keying, chasing, the spreadsheet-as-system | none |
-| How it works | The funnel as five numbered steps: questions, demo, feedback, prototype, real app | Start with the four questions |
-| What I build | Six task types, phrased as outcomes, not product names | none |
-| Why it costs less | One builder, an automated build pipeline, single-task scope | none |
-| Questions | Six FAQs, the objections before scanning a card | none |
-| Start here | Final CTA | Build my demo |
+| Hero | "Your whole business. One screen." Three rotated overnight cards show what an automated morning looks like | Book a free walkthrough → `#contact`; "See how it works" → `#how` |
+| Industry strip | Amber marquee of industries (pauses and wraps under `prefers-reduced-motion`) | none |
+| Sound familiar? | Sticky headline, numbered 01/02/03 pains: numbers in five places, typed twice, found out too late | none |
+| What we do · 01 | Navy: "Automate the busywork", Estimate → Job → Invoice → Paid flow, three bullets | none |
+| What we do · 02 | Paper: "See it all in one place", bar chart, three bullets | Demo funnel link (secondary) |
+| Promise band | 1 screen / 0 numbers typed twice / same-day reply | none |
+| How it works | Three triangle-marked steps: free walkthrough 45 min, we build it 2–4 weeks, handoff & support | none |
+| Pull quote | Client quote placeholder on navy | none |
+| About | "A neighbor who speaks both languages", photo placeholder | none |
+| Contact | Form: name, company, email or phone, message | Book my free walkthrough |
+| Footer | Wordmark, anchors, copyright | none |
+
+## Primary CTA and the form
+
+GitHub Pages runs no server, so the contact form submits with `action="mailto:…"`
+(`method="get"`, `enctype="text/plain"`): the visitor's mail client opens with the
+fields prefilled. Replace `hello@example.com` in the form `action` and the email link
+with the real address before launch. If a real form backend is wanted later (Formspree,
+a BlaineOS route on the public gateway), change only the `<form>` element.
 
 ## Funnel link
 
-`https://blaine-home-2.tail993575.ts.net:8443/instant-business-demo/?ref=site`.
-BlaineOS records every visit; today anything other than `ref=business-card` is
-counted as `direct`, so site visits are not yet distinguishable from typed-in ones.
-Add `site` as a referral kind in BlaineOS (`server/business-demo.mjs`, `recordVisit`)
-when that distinction matters. If `publicGatewayUrl` changes, change every CTA here.
+`https://blaine-home-2.tail993575.ts.net:8443/instant-business-demo/?ref=site`, one
+link in the "See it all in one place" block. BlaineOS records `site` as a referral kind.
+If `publicGatewayUrl` changes, change this link.
 
 ## Design language
 
-Shared with the demo page (`blaineos/public-business-demo/style.css`) so the
-scan-to-demo path feels like one place: cream canvas `#f5f1e8`, paper cards,
-ink `#182723`, forest green `#2e6245`, Georgia display, monospace eyebrows,
-hairline borders, numbered rails. No webfonts, no scripts, no images; the page is
-two files. The hero "ticket" mirrors the four questions in the order the form asks
-them. Works at phone width with a 16 px gutter and no horizontal scroll.
+Tokens from the canvas build note, all in `:root` in `style.css`:
+
+| Token | Value | Used for |
+| --- | --- | --- |
+| navy | `#08203D` | hero, quote, contact |
+| navy-2 | `#0D2A4D` | services block, headings |
+| footer | `#061729` | footer |
+| amber | `#F0A030` | CTA, bands, markers (navy text on it) |
+| amber-ink | `#B4560F` | labels on light backgrounds |
+| paper | `#F2EFE8` | second services block, photo frame |
+| text / muted | `#1F2937` / `#4B5563` | body copy |
+
+Type: Archivo 900 uppercase for display (H1 104 px desktop / 58 px phone, H2 60 / 40,
+letter-spacing -0.03em, line-height ≈0.96); Source Sans 3 18–20 px body; 13 px 800
+0.18em uppercase labels. Both come from Google Fonts (the only external requests).
+Motifs: the two-peak mountain mark (inline SVG paths, bleeding off section edges),
+solid triangles as bullets and step markers, full-bleed amber bands, corners ≤ 12 px,
+no bordered cards, no shadows. The three hero cards are rotated -2° / 1.5° / -1°.
+`logo.svg` is the white wordmark from the canvas; it only sits on navy.
+Phone layout (≤ 760 px) mirrors the mobile board: hamburger menu (CSS checkbox, no
+script), stacked cards, single-column steps and promises, 20 px gutter, no horizontal
+scroll.
 
 ## Copy rules
 
 - No clients, logos, testimonials, counts or savings figures unless they are real
-  and Blaine supplied them. The hero example is labelled as an example.
+  and Blaine supplied them. The hero cards and the bar chart are illustrative.
 - The demo uses sample data; say so wherever the demo is offered.
-- Every CTA is the same link. The site collects nothing itself.
 - Plain sentences, second person, no AI vocabulary.
+- Bracketed text is a placeholder and must be replaced before the site is promoted.
 
-## Claims to confirm before printing cards
+## Placeholders to fill before launch
 
-These are on the page today and are reasonable, but Blaine has not stated them:
+All are literal `[...]` strings in `index.html`; search for `[`.
 
-1. "A prototype for a single, well-described task follows within days."
-2. "The demo and the feedback step are free. Price comes with the scope, after the prototype."
-3. "Fixed scope" for the real app.
-4. "Nothing is shared or sold" about the visitor's answers.
+1. `[YOUR TOWN], [STATE]` in the hero pill, the about copy and the footer.
+2. `[Your Name]` in the about copy and the photo caption; the background sentence.
+3. `[Photo of you on a job site — real, not stock]`: drop a photo into the `about-photo` figure.
+4. The client quote, `[Name]`, `[Title], [Company] · [Town]`, or remove the quote section.
+5. `[Your phone]` / `[Your email]` and the `tel:` / `mailto:` hrefs beside them.
+6. `hello@example.com` in the form `action`.
 
-Change the wording in `index.html` if any of these is not how Blaine wants to work.
+Claims on the page that Blaine has not confirmed: "2–4 weeks", "fixed price, agreed
+up front", "we reply within one business day", "45 minutes, no pitch".
 
 ## Domain
 
