@@ -2,8 +2,8 @@
 id: SITE
 genre: reference
 status: current
-updated: 2026-09-25
-summary: Structure of the marketing page (V2 Bold design), its primary CTA (the walkthrough form) and the demo funnel link, the design tokens, the copy rules, and the bracketed placeholders Blaine must fill before launch.
+updated: 2026-09-26
+summary: Structure of the marketing page (V2 Bold design), its primary CTA (the demo intake that opens the Instant Business Demo prefilled), the walkthrough ask, the design tokens, the copy rules, and what Blaine still has to supply.
 ---
 
 # The marketing site
@@ -19,25 +19,29 @@ as a secondary link inside the "See it all in one place" block.
 
 | Section | Purpose | CTA |
 | --- | --- | --- |
-| Hero | "Your whole business. One screen." Three rotated overnight cards show what an automated morning looks like | Book a free walkthrough → `#contact`; "See how it works" → `#how` |
+| Hero | "Your whole business. One screen." Three rotated overnight cards show what an automated morning looks like | See your demo in two minutes → `#demo`; "See how it works" → `#how` |
 | Industry strip | Amber marquee of industries (pauses and wraps under `prefers-reduced-motion`) | none |
-| Sound familiar? | Sticky headline, numbered 01/02/03 pains: numbers in five places, typed twice, found out too late | none |
+| Sound familiar? | Sticky headline, numbered 01/02/03 pains | none |
 | What we do · 01 | Navy: "Automate the busywork", Estimate → Job → Invoice → Paid flow, three bullets | none |
-| What we do · 02 | Paper: "See it all in one place", bar chart, three bullets | Demo funnel link (secondary) |
+| What we do · 02 | Paper: "See it all in one place", bar chart, three bullets | "Try a two-minute sample demo" → `#demo` |
 | Promise band | 1 screen / 0 numbers typed twice / same-day reply | none |
 | How it works | Three triangle-marked steps: free walkthrough 45 min, we build it 2–4 weeks, handoff & support | none |
-| Pull quote | Client quote placeholder on navy | none |
-| About | "A neighbor who speaks both languages", photo placeholder | none |
-| Contact | Form: name, company, email or phone, message | Book my free walkthrough |
+| About | "A neighbor who speaks both languages", the mountain mark in place of a photo until Blaine supplies one | none |
+| Demo intake (`#demo`) | The Instant Business Demo's own four questions | Show me my demo → opens the demo prefilled |
+| Walkthrough (`#contact`) | The secondary ask; routes through the demo's last step until a business email exists | Start with the demo, then ask for a call |
 | Footer | Wordmark, anchors, copyright | none |
 
-## Primary CTA and the form
+The pull quote section is commented out until a real client quote exists.
 
-GitHub Pages runs no server, so the contact form submits with `action="mailto:…"`
-(`method="get"`, `enctype="text/plain"`): the visitor's mail client opens with the
-fields prefilled. Replace `hello@example.com` in the form `action` and the email link
-with the real address before launch. If a real form backend is wanted later (Formspree,
-a BlaineOS route on the public gateway), change only the `<form>` element.
+## The demo intake
+
+The form at `#demo` is a plain `GET` to the demo page: fields `business`, `task`,
+`how`, `outcome` plus `ref=site` and `auto=1`. Since 2026-09-26 the demo page
+(`blaineos/public-business-demo/client.js`) reads those parameters, fills its own
+form and, with `auto=1` and all four answers present, submits it on load, so the
+visitor lands on their demo building. Without JavaScript on the demo side the visitor
+still lands on the demo form with the answers in the URL. No cross-origin request,
+nothing stored on the site, and BlaineOS records the visit as `site`.
 
 ## Funnel link
 
@@ -78,19 +82,20 @@ scroll.
 - Plain sentences, second person, no AI vocabulary.
 - Bracketed text is a placeholder and must be replaced before the site is promoted.
 
-## Placeholders to fill before launch
+## What Blaine still has to supply
 
-All are literal `[...]` strings in `index.html`; search for `[`.
+No bracketed placeholders remain. To finish the page:
 
-1. (removed 2026-09-25: no town or state on the page, at Blaine's request)
-2. `[Your Name]` in the about copy and the photo caption; the background sentence.
-3. `[Photo of you on a job site — real, not stock]`: drop a photo into the `about-photo` figure.
-4. The client quote, `[Name]`, `[Title], [Company] · [Town]`, or remove the quote section.
-5. `[Your phone]` / `[Your email]` and the `tel:` / `mailto:` hrefs beside them.
-6. `hello@example.com` in the form `action`.
+1. A business email (and optionally a phone): then the walkthrough section gets a
+   real "email us" button and the about section its "You'll have my number" line
+   becomes literal. Nothing on the page today invents an address.
+2. A photo for the about section (replaces the mountain mark in `about-photo`).
+3. A real client quote for the pull quote section (uncomment it in `index.html`).
+4. The about copy's one-line background sentence, if the current wording is off.
 
-Claims on the page that Blaine has not confirmed: "2–4 weeks", "fixed price, agreed
-up front", "we reply within one business day", "45 minutes, no pitch".
+Claims on the page Blaine has not confirmed: "2–4 weeks", "fixed price, agreed up
+front", "we reply within one business day", "45 minutes, no pitch", "about a minute"
+for the demo build.
 
 ## Domain
 

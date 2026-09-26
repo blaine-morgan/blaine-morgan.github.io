@@ -24,7 +24,7 @@
       "path": "docs/INDEX.md",
       "genre": "index",
       "status": "current",
-      "updated": "2026-09-25",
+      "updated": "2026-09-26",
       "summary": "Catalog of every document, typed by genre and status. Entry point for agents."
     },
     {
@@ -32,8 +32,8 @@
       "path": "docs/SITE.md",
       "genre": "reference",
       "status": "current",
-      "updated": "2026-09-25",
-      "summary": "Structure of the marketing page (V2 Bold design), its primary CTA (the walkthrough form) and the demo funnel link, the design tokens, the copy rules, and the bracketed placeholders Blaine must fill before launch."
+      "updated": "2026-09-26",
+      "summary": "Structure of the marketing page (V2 Bold design), its primary CTA (the demo intake that opens the Instant Business Demo prefilled), the walkthrough ask, the design tokens, the copy rules, and what Blaine still has to supply."
     }
   ]
 }

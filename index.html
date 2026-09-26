@@ -35,7 +35,7 @@
         <a href="#services">What we do</a>
         <a href="#how">How it works</a>
         <a href="#about">About</a>
-        <a class="nav-cta" href="#contact">Book a walkthrough</a>
+        <a class="nav-cta" href="#demo">See your demo</a>
       </div>
     </nav>
 
@@ -44,7 +44,7 @@
       <h1>Your whole business.<br><span class="amber">One screen.</span></h1>
       <p class="lede">We wire together the software you already pay for, kill the double entry, and hand you one plain-English view of jobs, cash and crews — updated before you finish your coffee.</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="#contact">Book a free walkthrough <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+        <a class="btn btn-primary" href="#demo">See your demo in two minutes <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
         <a class="link-underline" href="#how">See how it works</a>
       </div>
     </div>
@@ -105,7 +105,7 @@
           <li>Alerts when budgets, deadlines or bills drift</li>
           <li>Works on your phone, from the truck</li>
         </ul>
-        <p class="demo-link"><a href="https://blaine-home-2.tail993575.ts.net:8443/instant-business-demo/?ref=site">Try a two-minute sample demo of your own task →</a></p>
+        <p class="demo-link"><a href="#demo">Try a two-minute sample demo of your own task →</a></p>
       </div>
     </section>
 
@@ -132,50 +132,55 @@
       </ol>
     </section>
 
-    <!-- PULL QUOTE -->
-    <section class="quote" aria-label="Client quote">
-      <svg class="peaks peaks-quote" viewBox="0 0 590 233" aria-hidden="true"><path d="M 407 227 L 213 4 L 4 227 L 141 228 L 227 137 L 306 227 Z M 341 110 L 443 228 L 585 227 L 421 27 Z" fill="#ffffff" fill-rule="evenodd" opacity="0.05"></path></svg>
-      <span class="quote-mark" aria-hidden="true">“</span>
-      <div class="quote-body">
-        <blockquote>[Client quote — one or two sentences, in their own words, about the time they got back or the problem they caught early.]</blockquote>
-        <p class="attribution"><span class="avatar" aria-hidden="true"></span><span><strong>[Name]</strong><br>[Title], [Company] · [Town]</span></p>
-      </div>
-    </section>
+    <!-- PULL QUOTE: add back when a real client quote exists (see docs/SITE.md) -->
 
     <!-- ABOUT -->
     <section class="about" id="about" aria-labelledby="about-title">
       <div class="about-copy">
         <p class="label">Local &amp; hands-on</p>
         <h2 id="about-title">A neighbor who speaks both languages.</h2>
-        <p class="muted big">Yours, and the software's. I'm [Your Name]. I started Morgan Tech Solutions after [one sentence on your background — the years in industry, the problem you kept seeing]. I'd rather drive out to your shop than send a slide deck.</p>
+        <p class="muted big">Yours, and the software's. Morgan Tech Solutions is one person, Blaine Morgan, who has spent years watching good businesses lose hours to re-typing and chasing. I'd rather drive out to your shop than send a slide deck.</p>
         <p class="strong">You won't get a support queue. You'll have my number.</p>
       </div>
-      <figure class="about-photo">
-        <span class="photo-placeholder">[Photo of you on a job site — real, not stock]</span>
-        <figcaption>[Your Name] · Founder</figcaption>
+      <figure class="about-photo about-mark">
+        <svg viewBox="0 0 590 233" aria-hidden="true"><path d="M 407 227 L 213 4 L 4 227 L 141 228 L 227 137 L 306 227 Z" fill="none" stroke="#0D2A4D" stroke-width="6"></path><path d="M 341 110 L 443 228 L 585 227 L 421 27 Z" fill="#F0A030"></path></svg>
+        <figcaption>Blaine Morgan · Founder</figcaption>
       </figure>
     </section>
 
-    <!-- CONTACT -->
-    <section class="contact" id="contact" aria-labelledby="contact-title">
+    <!-- DEMO INTAKE -->
+    <section class="contact" id="demo" aria-labelledby="demo-title">
       <svg class="peaks peaks-contact" viewBox="0 0 590 233" aria-hidden="true"><path d="M 407 227 L 213 4 L 4 227 L 141 228 L 227 137 L 306 227 Z" fill="none" stroke="var(--amber)" stroke-width="2.5" opacity="0.35"></path><path d="M 341 110 L 443 228 L 585 227 L 421 27 Z" fill="none" stroke="var(--amber)" stroke-width="2.5" opacity="0.35"></path></svg>
       <div class="contact-copy">
-        <p class="label label-amber">Free walkthrough</p>
-        <h2 id="contact-title">Let's look at your workflow together.</h2>
-        <p class="muted-light big">45 minutes, no pitch. You'll leave with a clear list of what's worth automating — whether or not you hire us.</p>
-        <p class="contact-lines"><a href="tel:+10000000000">[Your phone]</a><a class="amber" href="mailto:hello@example.com">[Your email]</a></p>
+        <p class="label label-amber">Two minutes, four questions</p>
+        <h2 id="demo-title">See your busiest task running itself.</h2>
+        <p class="muted-light big">Answer four short questions about one task your business does by hand. You get a sample dashboard built around it, in about a minute. No account, no card. It uses sample data, not your records.</p>
+        <p class="muted-light">Prefer to talk first? <a class="amber" href="#contact">Book a free 45-minute walkthrough</a>.</p>
       </div>
-      <form class="book" action="mailto:hello@example.com" method="get" enctype="text/plain">
-        <div class="two">
-          <div class="field"><label for="b-name">Your name</label><input id="b-name" name="name" type="text" autocomplete="name"></div>
-          <div class="field"><label for="b-co">Company</label><input id="b-co" name="company" type="text" autocomplete="organization"></div>
-        </div>
-        <div class="field"><label for="b-email">Email or phone</label><input id="b-email" name="contact" type="text" autocomplete="email"></div>
-        <div class="field"><label for="b-msg">What eats up your time?</label><textarea id="b-msg" name="body" rows="4" placeholder="Chasing invoices, re-typing estimates, never knowing which jobs make money…"></textarea></div>
-        <button class="btn btn-primary btn-block" type="submit">Book my free walkthrough</button>
-        <p class="form-note">We reply within one business day. No newsletter, no spam.</p>
+      <form class="book" id="demo-form" action="https://blaine-home-2.tail993575.ts.net:8443/instant-business-demo/" method="get">
+        <input type="hidden" name="ref" value="site">
+        <input type="hidden" name="auto" value="1">
+        <div class="field"><label for="d-business">1. What is your business?</label><input id="d-business" name="business" type="text" required maxlength="200" placeholder="Name and what you do, in a sentence"></div>
+        <div class="field"><label for="d-task">2. Which task eats the most time each week?</label><input id="d-task" name="task" type="text" required maxlength="300" placeholder="The one you would hand off first"></div>
+        <div class="field"><label for="d-how">3. Who does it today, and with what?</label><input id="d-how" name="how" type="text" required maxlength="300" placeholder="People, spreadsheets, apps, paper"></div>
+        <div class="field"><label for="d-outcome">4. If it ran itself, what should happen?</label><textarea id="d-outcome" name="outcome" rows="3" required maxlength="500" placeholder="The result you want without the busywork"></textarea></div>
+        <button class="btn btn-primary btn-block" type="submit">Show me my demo</button>
+        <p class="form-note">Opens your demo on our demo server. Takes under a minute.</p>
       </form>
     </section>
+
+    <!-- WALKTHROUGH -->
+    <section class="walkthrough" id="contact" aria-labelledby="contact-title">
+      <div class="walkthrough-inner">
+        <p class="label">Free walkthrough</p>
+        <h2 id="contact-title">Or let's look at your workflow together.</h2>
+        <p class="muted big">45 minutes, no pitch. You'll leave with a clear list of what's worth automating, whether or not you hire us.</p>
+        <p class="walkthrough-cta"><a class="btn btn-primary" href="#demo">Start with the demo, then ask for a call</a></p>
+        <p class="muted">The demo's last step asks how to reach you. Say "walkthrough" in the notes and we'll set one up.</p>
+        <p class="form-note">We reply within one business day. No newsletter, no spam.</p>
+      </div>
+    </section>
+
   </main>
 
   <footer class="footer">

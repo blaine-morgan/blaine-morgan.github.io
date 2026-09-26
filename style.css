@@ -282,3 +282,13 @@ blockquote{margin:0;font-family:var(--display);font-size:44px;line-height:1.15;f
   .footer{flex-direction:column;align-items:flex-start;padding:40px var(--gutter);gap:16px;font-size:14px}
   .footer-links{gap:20px}
 }
+
+/* walkthrough (secondary ask) */
+.walkthrough{background:var(--paper);padding:96px var(--gutter)}
+.walkthrough-inner{max-width:760px;display:flex;flex-direction:column;gap:20px}
+.walkthrough-cta{margin-top:8px}
+.contact-copy .muted-light a.amber{color:var(--amber);font-weight:700}
+.about-mark{align-items:center;justify-content:center;flex-direction:column;gap:0}
+.about-mark svg{width:70%;height:auto}
+.about-mark figcaption{position:relative;margin-top:24px;align-self:flex-start}
+@media (max-width:760px){.walkthrough{padding:64px var(--gutter)}.walkthrough h2{font-size:38px}.walkthrough-cta .btn{display:flex;width:100%;height:auto;padding:16px 18px;font-size:17px;text-align:center}}
