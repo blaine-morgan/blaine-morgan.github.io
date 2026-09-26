@@ -35,13 +35,14 @@ The pull quote section is commented out until a real client quote exists.
 
 ## The demo intake
 
-The form at `#demo` is a plain `GET` to the demo page: fields `business`, `task`,
-`how`, `outcome` plus `ref=site` and `auto=1`. Since 2026-09-26 the demo page
-(`blaineos/public-business-demo/client.js`) reads those parameters, fills its own
-form and, with `auto=1` and all four answers present, submits it on load, so the
-visitor lands on their demo building. Without JavaScript on the demo side the visitor
-still lands on the demo form with the answers in the URL. No cross-origin request,
-nothing stored on the site, and BlaineOS records the visit as `site`.
+The form at `#demo` posts the four answers straight to the demo service from this
+page (`POST …/instant-business-demo/generate` with `submissionId` and
+`referralCode: site`; the gateway allows this origin since 2026-09-26), shows
+"Building your sample demo…", and on success sends the visitor to their finished
+demo (`demoUrl`), where feedback and contact live. If the service cannot be
+reached from the browser, the plain form submit opens the demo page with the
+answers prefilled (`business`, `task`, `how`, `outcome`, `ref=site`, `auto=1`; the
+demo page fills and submits them itself). Nothing is stored on the site.
 
 ## Funnel link
 
