@@ -35,7 +35,7 @@
         <a href="#services">What we do</a>
         <a href="#how">How it works</a>
         <a href="#about">About</a>
-        <a class="nav-cta" href="#demo">See your demo</a>
+        <a class="nav-cta" href="#demo">Get your demo</a>
       </div>
     </nav>
 
@@ -44,7 +44,7 @@
       <h1>Your whole business.<br><span class="amber">One screen.</span></h1>
       <p class="lede">We wire together the software you already pay for, kill the double entry, and hand you one plain-English view of jobs, cash and crews — updated before you finish your coffee.</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="#demo">See your demo in two minutes <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+        <a class="btn btn-primary" href="#demo">Get your free sample demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
         <a class="link-underline" href="#how">See how it works</a>
       </div>
     </div>
@@ -105,7 +105,7 @@
           <li>Alerts when budgets, deadlines or bills drift</li>
           <li>Works on your phone, from the truck</li>
         </ul>
-        <p class="demo-link"><a href="#demo">Try a two-minute sample demo of your own task →</a></p>
+        <p class="demo-link"><a href="#demo">Get a sample demo of your own task →</a></p>
       </div>
     </section>
 
@@ -154,12 +154,10 @@
       <div class="contact-copy">
         <p class="label label-amber">Two minutes, four questions</p>
         <h2 id="demo-title">See your busiest task running itself.</h2>
-        <p class="muted-light big">Answer four short questions about one task your business does by hand. You get a sample dashboard built around it, in about a minute. No account, no card. It uses sample data, not your records.</p>
+        <p class="muted-light big">Answer four short questions about one task your business does by hand. We build a sample dashboard around it and send you the link. No account, no card.</p>
         <p class="muted-light">Prefer to talk first? <a class="amber" href="#contact">Book a free 45-minute walkthrough</a>.</p>
       </div>
-      <form class="book" id="demo-form" action="https://blaine-home-2.tail993575.ts.net:8443/instant-business-demo/" method="get">
-        <input type="hidden" name="ref" value="site">
-        <input type="hidden" name="auto" value="1">
+      <form class="book" id="demo-form" action="#demo" method="post" novalidate>
         <div class="field"><label for="d-business">1. What is your business?</label><input id="d-business" name="business" type="text" required maxlength="200" placeholder="Name and what you do, in a sentence"></div>
         <div class="field"><label for="d-task">2. Which task eats the most time each week?</label><input id="d-task" name="task" type="text" required maxlength="300" placeholder="The one you would hand off first"></div>
         <div class="field"><label for="d-how">3. Who does it today, and with what?</label><input id="d-how" name="how" type="text" required maxlength="300" placeholder="People, spreadsheets, apps, paper"></div>
@@ -170,7 +168,7 @@
         </div>
         <div class="field"><label for="d-email">Email, so we can send you your demo link</label><input id="d-email" name="email" type="email" required maxlength="254" autocomplete="email"></div>
         <button class="btn btn-primary btn-block" type="submit">Show me my demo</button>
-        <p class="form-note" id="demo-note">Takes under a minute. Your result uses sample data, not your records. We email you the link to your demo and nothing else.</p>
+        <p class="form-note" id="demo-note">We email (and text, if you like) the link to your demo when it's ready, usually within a few minutes. Sample data, not your records. Nothing else, ever.</p>
       </form>
     </section>
 
@@ -180,8 +178,8 @@
         <p class="label">Free walkthrough</p>
         <h2 id="contact-title">Or let's look at your workflow together.</h2>
         <p class="muted big">45 minutes, no pitch. You'll leave with a clear list of what's worth automating, whether or not you hire us.</p>
-        <p class="walkthrough-cta"><a class="btn btn-primary" href="#demo">Start with the demo, then ask for a call</a></p>
-        <p class="muted">The demo's last step asks how to reach you. Say "walkthrough" in the notes and we'll set one up.</p>
+        <p class="walkthrough-cta"><a class="btn btn-primary" href="#demo">Request your demo and mention a walkthrough</a></p>
+        <p class="muted">Put "walkthrough" in your answer to question four and Blaine will reach out to set one up.</p>
         <p class="form-note">We reply within one business day. No newsletter, no spam.</p>
       </div>
     </section>
@@ -200,32 +198,37 @@
   </footer>
 <script>
 (function(){
-  // The four answers go straight to the demo service from this page. When the
-  // demo is built the visitor lands on their finished demo (feedback and contact
-  // live there). If the service cannot be reached from here, the plain form
-  // submit opens the demo page with the answers filled in instead.
+  // The four answers and the contact go to the demo service; the visitor only
+  // sees a confirmation here. The demo is built in the background and the link
+  // arrives by email (and text when a phone was given). No redirect, ever.
   var form=document.getElementById('demo-form'),note=document.getElementById('demo-note');
   if(!form||!window.fetch)return;
   var gateway='https://blaine-home-2.tail993575.ts.net:8443/instant-business-demo';
-  var submissionId=(function(){try{var k='mts-demo-submission',v=sessionStorage.getItem(k);if(!v){v=(crypto.randomUUID?crypto.randomUUID():'xxxxxxxx-xxxx-4xxx-8xxx-xxxxxxxxxxxx'.replace(/x/g,function(){return (Math.random()*16|0).toString(16);}));sessionStorage.setItem(k,v);}return v;}catch(e){return 'xxxxxxxx-xxxx-4xxx-8xxx-xxxxxxxxxxxx'.replace(/x/g,function(){return (Math.random()*16|0).toString(16);});}})();
   var button=form.querySelector('button[type=submit]');
   form.addEventListener('submit',function(event){
-    if(!form.checkValidity())return;
     event.preventDefault();
+    if(!form.checkValidity()){form.reportValidity();return;}
     var body={};['business','task','how','outcome','name','email','phone'].forEach(function(k){body[k]=form.elements[k].value.trim();});
-    body.submissionId=submissionId;body.referralCode='site';
-    button.disabled=true;note.textContent='Building your sample demo. This usually takes under a minute…';
-    fetch(gateway+'/visit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({referralCode:'site'})}).catch(function(){});
-    var generate=function(){return fetch(gateway+'/generate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)})
-      .then(function(r){return r.json().catch(function(){return {};}).then(function(v){if(!r.ok){var e=new Error(v.error||'The demo service did not answer.');e.retry=v.retry===true||v.category==='busy';throw e;}return v;});});};
-    generate()
-      .catch(function(error){if(!error.retry)throw error;note.textContent='The demo service is busy for a moment; trying again…';return new Promise(function(res){setTimeout(res,3000);}).then(generate);})
-      .then(function(lead){location.href=lead.demoUrl||(gateway+'/d/'+lead.token);})
+    body.referralCode='site';
+    body.submissionId=(crypto.randomUUID?crypto.randomUUID():'xxxxxxxx-xxxx-4xxx-8xxx-xxxxxxxxxxxx'.replace(/x/g,function(){return (Math.random()*16|0).toString(16);}));
+    button.disabled=true;note.textContent='Sending…';
+    var attempt=function(){return fetch(gateway+'/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)})
+      .then(function(r){return r.json().catch(function(){return {};}).then(function(v){if(!r.ok){var e=new Error(v.error||'The demo service did not answer.');e.retry=v.retry===true||r.status>=500;throw e;}return v;});});};
+    attempt()
+      .catch(function(error){if(!error.retry)throw error;note.textContent='One moment, trying again…';return new Promise(function(res){setTimeout(res,3000);}).then(attempt);})
+      .then(function(){
+        var done=document.createElement('div');done.className='submitted';
+        done.innerHTML='<p class="submitted-title">Got it, '+escapeHtml(body.name.split(' ')[0]||'thanks')+'.</p>'+
+          '<p>Your sample demo is being built. We\'ll email the link to <strong>'+escapeHtml(body.email)+'</strong>'+(body.phone?' and text <strong>'+escapeHtml(body.phone)+'</strong>':'')+' when it\'s ready, usually within a few minutes.</p>'+
+          '<p class="form-note">It uses sample data, not your records. Blaine will follow up personally.</p>';
+        form.replaceWith(done);
+      })
       .catch(function(error){
-        note.textContent=(error&&error.message?error.message+' ':'')+'Opening the demo page instead…';
-        setTimeout(function(){form.submit();},900);
+        button.disabled=false;
+        note.textContent=(error&&error.message?error.message+' ':'')+'Please try again in a moment.';
       });
   });
+  function escapeHtml(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
 })();
 </script>
 </body>

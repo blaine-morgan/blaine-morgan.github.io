@@ -3,7 +3,7 @@ id: SITE
 genre: reference
 status: current
 updated: 2026-09-26
-summary: Structure of the marketing page (V2 Bold design), its primary CTA (the demo intake that opens the Instant Business Demo prefilled), the walkthrough ask, the design tokens, the copy rules, and what Blaine still has to supply.
+summary: Structure of the marketing page (V2 Bold design), its primary CTA (the demo request that is saved and built in the background, link sent by email/text), the walkthrough ask, the design tokens, the copy rules, and what Blaine still has to supply.
 ---
 
 # The marketing site
@@ -27,23 +27,25 @@ as a secondary link inside the "See it all in one place" block.
 | Promise band | 1 screen / 0 numbers typed twice / same-day reply | none |
 | How it works | Three triangle-marked steps: free walkthrough 45 min, we build it 2–4 weeks, handoff & support | none |
 | About | "A neighbor who speaks both languages", the mountain mark in place of a photo until Blaine supplies one | none |
-| Demo intake (`#demo`) | The Instant Business Demo's own four questions | Show me my demo → opens the demo prefilled |
-| Walkthrough (`#contact`) | The secondary ask; routes through the demo's last step until a business email exists | Start with the demo, then ask for a call |
+| Demo intake (`#demo`) | The four demo questions plus name, email, optional phone | Show me my demo → confirmation on the page; link arrives by email/text |
+| Walkthrough (`#contact`) | The secondary ask; routes through the demo request until a business email exists | Request your demo and mention a walkthrough |
 | Footer | Wordmark, anchors, copyright | none |
 
 The pull quote section is commented out until a real client quote exists.
 
 ## The demo intake
 
-The form at `#demo` posts the four answers plus name, email and optional phone
-straight to the demo service from this page (`POST …/instant-business-demo/generate`
-with `submissionId`, `referralCode: site` and the contact, which BlaineOS stores with
-the lead and uses to send the demo link; the gateway allows this origin since 2026-09-26), shows
-"Building your sample demo…", and on success sends the visitor to their finished
-demo (`demoUrl`), where feedback and contact live. If the service cannot be
-reached from the browser, the plain form submit opens the demo page with the
-answers prefilled (`business`, `task`, `how`, `outcome`, `ref=site`, `auto=1`; the
-demo page fills and submits them itself). Nothing is stored on the site.
+The form at `#demo` collects the four demo questions plus name, email and an
+optional phone, and posts them as JSON to
+`POST …/instant-business-demo/submit` on the public gateway (CORS for this origin).
+The service saves the lead, answers 202 at once and builds the demo in a durable
+background queue that retries through provider outages; when the demo is ready
+BlaineOS emails the link (and texts it when a phone was given and Twilio is
+configured), or notifies Blaine to send it by hand when email is not configured.
+The visitor sees only a confirmation on this page ("Got it. We'll email the link…");
+nobody is sent to the BlaineOS demo page, which remains only as what the emailed
+link opens (`/d/<token>`) and as the business-card QR target. On a service error
+the page retries once, then asks the visitor to try again; nothing is stored on the site.
 
 ## Funnel link
 

@@ -292,3 +292,6 @@ blockquote{margin:0;font-family:var(--display);font-size:44px;line-height:1.15;f
 .about-mark svg{width:70%;height:auto}
 .about-mark figcaption{position:relative;margin-top:24px;align-self:flex-start}
 @media (max-width:760px){.walkthrough{padding:64px var(--gutter)}.walkthrough h2{font-size:38px}.walkthrough-cta .btn{display:flex;width:100%;height:auto;padding:16px 18px;font-size:17px;text-align:center}}
+.submitted{background:var(--white);color:var(--text);padding:40px;border-radius:8px;display:flex;flex-direction:column;gap:14px;flex:0 0 540px}
+.submitted-title{font-family:var(--display);font-weight:800;font-size:28px;color:var(--navy-2);letter-spacing:-.02em}
+@media (max-width:760px){.submitted{flex-basis:auto;padding:24px}}

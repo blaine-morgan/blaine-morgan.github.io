@@ -24,7 +24,7 @@ How the system behaves now.
 
 | Doc | Status | Updated | Summary |
 | --- | --- | --- | --- |
-| [SITE](SITE.md) | current | 2026-09-26 | Structure of the marketing page (V2 Bold design), its primary CTA (the demo intake that opens the Instant Business Demo prefilled), the walkthrough ask, the design tokens, the copy rules, and what Blaine still has to supply. |
+| [SITE](SITE.md) | current | 2026-09-26 | Structure of the marketing page (V2 Bold design), its primary CTA (the demo request that is saved and built in the background, link sent by email/text), the walkthrough ask, the design tokens, the copy rules, and what Blaine still has to supply. |
 
 ## index
 
