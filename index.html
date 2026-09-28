@@ -201,18 +201,38 @@
   </footer>
 <script>
 (function(){
+  var gateway='https://blaine-home-2.tail993575.ts.net:8443/instant-business-demo';
+
+  // Where this visitor came from. The printed card's QR carries ?ref=card. The
+  // parameter survives neither an in-page anchor nor a reload, so the resolved
+  // code is kept for the rest of the visit.
+  var FROM_PARAM={card:'business-card',site:'site',direct:'direct'},KNOWN=['business-card','site','direct'];
+  function recall(key){try{return window.sessionStorage.getItem(key);}catch(e){return null;}}
+  function remember(key,value){try{window.sessionStorage.setItem(key,value);}catch(e){}}
+  var param='';try{param=(new URLSearchParams(window.location.search).get('ref')||'').trim().toLowerCase();}catch(e){}
+  var kept=recall('mts.referral');
+  var referral=(Object.prototype.hasOwnProperty.call(FROM_PARAM,param)&&FROM_PARAM[param])||(KNOWN.indexOf(kept)>=0?kept:'site');
+  remember('mts.referral',referral);
+
+  if(!window.fetch)return;
+
+  // One ping per visit, so a card scan is counted even when nobody fills the form.
+  if(recall('mts.visit')!==referral){
+    remember('mts.visit',referral);
+    fetch(gateway+'/visit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({referralCode:referral})}).catch(function(){});
+  }
+
   // The four answers and the contact go to the demo service; the visitor only
   // sees a confirmation here. The demo is built in the background and the link
   // arrives by email (and text when a phone was given). No redirect, ever.
   var form=document.getElementById('demo-form'),note=document.getElementById('demo-note');
-  if(!form||!window.fetch)return;
-  var gateway='https://blaine-home-2.tail993575.ts.net:8443/instant-business-demo';
+  if(!form)return;
   var button=form.querySelector('button[type=submit]');
   form.addEventListener('submit',function(event){
     event.preventDefault();
     if(!form.checkValidity()){form.reportValidity();return;}
     var body={};['business','task','how','outcome','name','email','phone'].forEach(function(k){body[k]=form.elements[k].value.trim();});
-    body.referralCode='site';
+    body.referralCode=referral;
     body.submissionId=(crypto.randomUUID?crypto.randomUUID():'xxxxxxxx-xxxx-4xxx-8xxx-xxxxxxxxxxxx'.replace(/x/g,function(){return (Math.random()*16|0).toString(16);}));
     button.disabled=true;note.textContent='Sending…';
     var attempt=function(){return fetch(gateway+'/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)})

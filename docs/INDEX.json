@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "generated_by": "scripts/check-docs.py --reindex",
-  "repo": "blaine-morgan.github.io",
+  "repo": "site",
   "genres": [
     "audit",
     "direction",
@@ -24,7 +24,7 @@
       "path": "docs/INDEX.md",
       "genre": "index",
       "status": "current",
-      "updated": "2026-09-26",
+      "updated": "2026-09-28",
       "summary": "Catalog of every document, typed by genre and status. Entry point for agents."
     },
     {
@@ -32,8 +32,8 @@
       "path": "docs/SITE.md",
       "genre": "reference",
       "status": "current",
-      "updated": "2026-09-26",
-      "summary": "Structure of the marketing page (V2 Bold design), its primary CTA (the demo request that is saved and built in the background, link sent by email/text), the walkthrough ask, the design tokens, the copy rules, and what Blaine still has to supply."
+      "updated": "2026-09-28",
+      "summary": "Structure of the marketing page (V2 Bold design), its primary CTA (the demo request that is saved and built in the background, link sent by email/text), the walkthrough ask, how a visit is attributed to the business card or the web, the design tokens, the copy rules, and what Blaine still has to supply."
     }
   ]
 }

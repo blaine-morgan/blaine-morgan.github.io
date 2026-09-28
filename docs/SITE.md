@@ -2,8 +2,8 @@
 id: SITE
 genre: reference
 status: current
-updated: 2026-09-26
-summary: Structure of the marketing page (V2 Bold design), its primary CTA (the demo request that is saved and built in the background, link sent by email/text), the walkthrough ask, the design tokens, the copy rules, and what Blaine still has to supply.
+updated: 2026-09-28
+summary: Structure of the marketing page (V2 Bold design), its primary CTA (the demo request that is saved and built in the background, link sent by email/text), the walkthrough ask, how a visit is attributed to the business card or the web, the design tokens, the copy rules, and what Blaine still has to supply.
 ---
 
 # The marketing site
@@ -47,10 +47,26 @@ nobody is sent to the BlaineOS demo page, which remains only as what the emailed
 link opens (`/d/<token>`) and as the business-card QR target. On a service error
 the page retries once, then asks the visitor to try again; nothing is stored on the site.
 
+## Where visitors came from
+
+On load the page reads the `ref` query parameter and turns it into a referral
+code: `ref=card` (the printed business card's QR) becomes `business-card`,
+`ref=site` and `ref=direct` pass through, and anything unrecognised or missing
+is `site`. The resolved code is kept in `sessionStorage` (`mts.referral`) the
+first time it is seen, so it survives an in-page anchor, a reload, and the
+parameter being dropped from the address bar. It is sent two ways:
+
+- `POST …/instant-business-demo/visit` with `{"referralCode":…}`, once per
+  visit (`mts.visit` guards the repeat), so a card scan is counted even when
+  nobody fills the form. Failures are swallowed; the page never shows them.
+- as `referralCode` on the demo submission, which used to be hardcoded `site`.
+
 ## Funnel link
 
 `https://blaine-home-2.tail993575.ts.net:8443/instant-business-demo/?ref=site`, one
-link in the "See it all in one place" block. BlaineOS records `site` as a referral kind.
+link in the "See it all in one place" block. BlaineOS records `site`,
+`business-card` and `direct` as referral kinds. The business card's QR points at
+`https://morgantechconsulting.com/?ref=card#demo`.
 If `publicGatewayUrl` changes, change this link.
 
 ## Design language
