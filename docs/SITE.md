@@ -3,7 +3,7 @@ id: SITE
 genre: reference
 status: current
 updated: 2026-09-28
-summary: Structure of the marketing page (V2 Bold design), its primary CTA (the demo request that is saved and built in the background, link sent by email/text), the walkthrough ask, how a visit is attributed to the business card or the web, the design tokens, the copy rules, and what Blaine still has to supply.
+summary: Structure of the marketing page (V2 Bold design), its primary CTA (the demo request that is saved and built in the background, link sent by email/text), the walkthrough ask, how a visit is attributed to the business card or the web, the design tokens, the copy rules (generic by naming a range of industries, not by going abstract), and what Blaine still has to supply.
 ---
 
 # The marketing site
@@ -20,10 +20,10 @@ as a secondary link inside the "See it all in one place" block.
 | Section | Purpose | CTA |
 | --- | --- | --- |
 | Hero | "Your whole business. One screen." Three rotated overnight cards show what an automated morning looks like | See your demo in two minutes → `#demo`; "See how it works" → `#how` |
-| Industry strip | Amber marquee of industries (pauses and wraps under `prefers-reduced-motion`) | none |
+| Industry strip | Amber marquee of eight industries, trades among them rather than ahead of them (pauses and wraps under `prefers-reduced-motion`) | none |
 | Sound familiar? | Sticky headline, numbered 01/02/03 pains | none |
-| What we do · 01 | Navy: "Automate the busywork", Estimate → Job → Invoice → Paid flow, three bullets | none |
-| What we do · 02 | Paper: "See it all in one place", bar chart, three bullets | "Try a two-minute sample demo" → `#demo` |
+| What we do · 01 | Navy: "Automate the busywork", Quote → Book → Invoice → Paid flow, three bullets | none |
+| What we do · 02 | Paper: "See it all in one place", bar chart captioned "Where the money went", three bullets | "Get a sample demo of your own task" → `#demo` |
 | Promise band | 1 screen / 0 numbers typed twice / same-day reply | none |
 | How it works | Three triangle-marked steps: free walkthrough 45 min, we build it 2–4 weeks, handoff & support | none |
 | About | "A neighbor who speaks both languages", the mountain mark in place of a photo until Blaine supplies one | none |
@@ -100,6 +100,16 @@ scroll.
   and Blaine supplied them. The hero cards and the bar chart are illustrative.
 - The demo uses sample data; say so wherever the demo is offered.
 - Plain sentences, second person, no AI vocabulary.
+- The audience is any small business run on spreadsheets and memory, not the
+  trades. No crew, truck, shop, job site or job stage; say team, anywhere,
+  wherever you work, appointment or order. Since 2026-09-28 the copy carries no
+  trade-specific vocabulary.
+- Breadth comes from naming a range, never from going abstract. Where one
+  example would read as one industry, name two or three from different ones
+  (chasing unpaid invoices, filling next week's schedule, following up on
+  no-shows, reordering stock). Keep the examples inside what the demo actually
+  builds: quote and estimate, scheduling and dispatch, intake and follow-up,
+  invoicing and collections, inventory and orders, reporting.
 - Bracketed text is a placeholder and must be replaced before the site is promoted.
 
 ## What Blaine still has to supply
