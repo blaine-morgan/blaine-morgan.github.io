@@ -3,7 +3,7 @@ id: SITE
 genre: reference
 status: current
 updated: 2026-09-28
-summary: Structure of the marketing page (V2 Bold design), its primary CTA (the demo request that is saved and built in the background, link sent by email/text), the walkthrough ask, how a visit is attributed to the business card or the web, the design tokens, the copy rules (generic by naming a range of industries, not by going abstract), and what Blaine still has to supply.
+summary: Structure of the marketing page (V2 Bold design), its primary CTA (the demo request that is saved and built in the background, link sent by email/text), the walkthrough ask, how a visit is attributed to the business card or the web, the design tokens, the copy rules (generic by naming a range of industries rather than going abstract, and written in Blaine's voice rather than a model's), and what Blaine still has to supply.
 ---
 
 # The marketing site
@@ -19,14 +19,14 @@ as a secondary link inside the "See it all in one place" block.
 
 | Section | Purpose | CTA |
 | --- | --- | --- |
-| Hero | "Your whole business. One screen." Three rotated overnight cards show what an automated morning looks like | See your demo in two minutes → `#demo`; "See how it works" → `#how` |
+| Hero | "Your whole business. One screen." Three rotated overnight cards show what an automated morning looks like | "Get your free sample demo" → `#demo`; "See how it works" → `#how` |
 | Industry strip | Amber marquee of eight industries, trades among them rather than ahead of them (pauses and wraps under `prefers-reduced-motion`) | none |
 | Sound familiar? | Sticky headline, numbered 01/02/03 pains | none |
 | What we do · 01 | Navy: "Automate the busywork", Quote → Book → Invoice → Paid flow, three bullets | none |
 | What we do · 02 | Paper: "See it all in one place", bar chart captioned "Where the money went", three bullets | "Get a sample demo of your own task" → `#demo` |
 | Promise band | 1 screen / 0 numbers typed twice / same-day reply | none |
 | How it works | Three triangle-marked steps: free walkthrough 45 min, we build it 2–4 weeks, handoff & support | none |
-| About | "A neighbor who speaks both languages", the mountain mark in place of a photo until Blaine supplies one | none |
+| About | "I'd rather drive out than send a slide deck", first person, the mountain mark in place of a photo until Blaine supplies one | none |
 | Demo intake (`#demo`) | The four demo questions plus name, email, optional phone | Show me my demo → confirmation on the page; link arrives by email/text |
 | Walkthrough (`#contact`) | The secondary ask; routes through the demo request until a business email exists | Request your demo and mention a walkthrough |
 | Footer | Wordmark, anchors, copyright | none |
@@ -99,7 +99,24 @@ scroll.
 - No clients, logos, testimonials, counts or savings figures unless they are real
   and Blaine supplied them. The hero cards and the bar chart are illustrative.
 - The demo uses sample data; say so wherever the demo is offered.
-- Plain sentences, second person, no AI vocabulary.
+- Blaine's voice, not a model's. He is one person who drives out to businesses
+  and already knows their software, so he can be blunt and does not need to be
+  clever. First person in the About and wherever the page already uses it.
+- Banned outright: "plain English" (say what the dashboard shows instead),
+  "kill" where "remove" will do, "zero disruption", "rip-and-replace", and
+  em-dashes. Use full stops, commas or brackets.
+- Two rhetorical moves turn into a tic if repeated: the balanced pair ("You
+  won't get a support queue. You'll have my number.") and the rule of three
+  ("spreadsheets, texts and memory"). At most two on the whole page. Since
+  2026-09-28 those two are the H1 and the support-queue line; everything else
+  is an ordinary sentence. Lists of concrete industry examples do not count.
+- Nothing may assume the reader's habits, religion, politics or family. A
+  coffee reference was removed on 2026-09-28 because a large share of Blaine's
+  Utah clients do not drink it, and it quietly signals the page is not for them.
+- Vary sentence length on purpose: some long ones that take a breath, some very
+  short, unevenly spread. Prefer a concrete fact or number to an adjective.
+  If a sentence would survive word for word on a competitor's site, it is saying
+  nothing; cut it or make it specific to Blaine.
 - The audience is any small business run on spreadsheets and memory, not the
   trades. No crew, truck, shop, job site or job stage; say team, anywhere,
   wherever you work, appointment or order. Since 2026-09-28 the copy carries no
