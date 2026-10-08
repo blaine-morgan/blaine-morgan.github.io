@@ -2,7 +2,7 @@
 id: SITE
 genre: reference
 status: current
-updated: 2026-09-28
+updated: 2026-09-30
 summary: Structure of the marketing page (V2 Bold design), its primary CTA (the demo request that is saved and built in the background, link sent by email/text), the walkthrough ask, how a visit is attributed to the business card or the web, the design tokens, the copy rules (generic by naming a range of industries rather than going abstract, and written in Blaine's voice rather than a model's), and what Blaine still has to supply.
 ---
 
@@ -63,11 +63,11 @@ parameter being dropped from the address bar. It is sent two ways:
 
 ## Funnel link
 
-`https://blaine-home-2.tail993575.ts.net:8443/instant-business-demo/?ref=site`, one
+`https://demo.morgantechconsulting.com/instant-business-demo/?ref=site`, one
 link in the "See it all in one place" block. BlaineOS records `site`,
 `business-card` and `direct` as referral kinds. The business card's QR points at
 `https://morgantechconsulting.com/?ref=card#demo`.
-If `publicGatewayUrl` changes, change this link.
+The demo service is the hosted gateway on Railway (`demo.morgantechconsulting.com`, moved off the home PC's Tailscale funnel on 2026-10-08); if that address changes, change this link and the `gateway` constant in index.html.
 
 ## Design language
 
@@ -93,6 +93,13 @@ no bordered cards, no shadows. The three hero cards are rotated -2° / 1.5° / -
 Phone layout (≤ 760 px) mirrors the mobile board: hamburger menu (CSS checkbox, no
 script), stacked cards, single-column steps and promises, 20 px gutter, no horizontal
 scroll.
+
+### Icons
+
+`favicon.ico` (16/32/48), `favicon.svg` and `apple-touch-icon.png` (180x180, for iPhone
+home screens) sit at the site root, linked from `<head>`. All three show the same
+gold peaks on navy as the header mark. Added 2026-09-30 because `/favicon.ico` returned
+404. To change the mark, regenerate all three together.
 
 ## Copy rules
 

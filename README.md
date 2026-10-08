@@ -5,7 +5,7 @@ Marketing site for Blaine Morgan's custom business apps. Static: `index.html` +
 https://blaine-morgan.github.io/.
 
 Every call to action points at the Instant Business Demo funnel served by BlaineOS
-(`https://blaine-home-2.tail993575.ts.net:8443/instant-business-demo/?ref=site`),
+(`https://demo.morgantechconsulting.com/instant-business-demo/?ref=site`),
 the same page the business-card QR opens. The site is separate from BlaineOS on
 purpose: it stays up when the Windows PC that runs BlaineOS does not, and it ships
 on its own cadence. See [`docs/SITE.md`](docs/SITE.md) for the structure, the copy
