@@ -249,9 +249,9 @@ blockquote{margin:0;font-family:var(--display);font-size:44px;line-height:1.15;f
   .bars{height:110px;gap:10px}
   .promise{padding:40px var(--gutter);grid-template-columns:1fr;gap:24px}
   .promise div{flex-direction:row;align-items:baseline;gap:16px;padding-left:16px}
-  .promise strong{font-size:48px}
-  .promise strong.small{font-size:30px}
-  .promise span{font-size:15px}
+  .promise strong{font-size:48px;flex-shrink:0;white-space:nowrap}
+  .promise strong.small{font-size:26px;line-height:1}
+  .promise span{font-size:15px;line-height:1.35}
   .how{padding:72px var(--gutter);gap:32px}
   .how-head{flex-direction:column;align-items:flex-start;gap:16px}
   .how-head h2{font-size:40px}
